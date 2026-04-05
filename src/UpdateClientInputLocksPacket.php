@@ -17,22 +17,18 @@ namespace pocketmine\network\mcpe\protocol;
 use pmmp\encoding\ByteBufferReader;
 use pmmp\encoding\ByteBufferWriter;
 use pmmp\encoding\VarInt;
-use pocketmine\math\Vector3;
-use pocketmine\network\mcpe\protocol\serializer\CommonTypes;
 
 class UpdateClientInputLocksPacket extends DataPacket implements ClientboundPacket{
 	public const NETWORK_ID = ProtocolInfo::UPDATE_CLIENT_INPUT_LOCKS_PACKET;
 
 	private int $flags;
-	private Vector3 $position;
 
 	/**
 	 * @generate-create-func
 	 */
-	public static function create(int $flags, Vector3 $position) : self{
+	public static function create(int $flags) : self{
 		$result = new self;
 		$result->flags = $flags;
-		$result->position = $position;
 		return $result;
 	}
 

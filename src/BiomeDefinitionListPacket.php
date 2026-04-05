@@ -151,6 +151,18 @@ class BiomeDefinitionListPacket extends DataPacket implements ClientboundPacket{
 		), $this->definitionData ?? throw new PacketDecodeException("No definition data available"));
 	}
 
+	/**
+	 * @return BiomeDefinitionData[]
+	 * @phpstan-return list<BiomeDefinitionData>
+	 */
+	public function getDefinitionData() : array{ return $this->definitionData; }
+
+	/**
+	 * @return string[]
+	 * @phpstan-return list<string>
+	 */
+	public function getStrings() : array{ return $this->strings; }
+
 	protected function decodePayload(ByteBufferReader $in, int $protocolId) : void{
 		if($protocolId < ProtocolInfo::PROTOCOL_1_21_80){
 			$this->legacyDefinitions = new CacheableNbt(CommonTypes::getNbtCompoundRoot($in));
