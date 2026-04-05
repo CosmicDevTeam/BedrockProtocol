@@ -152,16 +152,22 @@ class BiomeDefinitionListPacket extends DataPacket implements ClientboundPacket{
 	}
 
 	/**
-	 * @return BiomeDefinitionData[]
-	 * @phpstan-return list<BiomeDefinitionData>
+	 * @return BiomeDefinitionData[]|null
+	 * @phpstan-return list<BiomeDefinitionData>|null
 	 */
-	public function getDefinitionData() : array{ return $this->definitionData; }
+	public function getDefinitionData() : ?array{ return $this->definitionData; }
 
 	/**
-	 * @return string[]
-	 * @phpstan-return list<string>
+	 * @return string[]|null
+	 * @phpstan-return list<string>|null
 	 */
-	public function getStrings() : array{ return $this->strings; }
+	public function getStrings() : ?array{ return $this->strings; }
+
+	/**
+	 * @return CacheableNbt<CompoundTag>|null
+	 * @phpstan-return CacheableNbt<CompoundTag>|null
+	 */
+	public function getLegacyDefinitions() : ?CacheableNbt{ return $this->legacyDefinitions; }
 
 	protected function decodePayload(ByteBufferReader $in, int $protocolId) : void{
 		if($protocolId < ProtocolInfo::PROTOCOL_1_21_80){
