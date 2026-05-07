@@ -84,7 +84,11 @@ final class GatheringJoinInfo{
 			$targetId ?? Uuid::uuid4(),
 			$scenarioId ?? "",
 			$serverId ?? "",
+<<<<<<< HEAD
 			$storeId  ?? "",
+=======
+			$storeId ?? "",
+>>>>>>> upstream/master
 			$storeName ?? "",
 			$presenceConfiguration
 		);
