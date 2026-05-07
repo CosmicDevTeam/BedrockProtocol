@@ -22,7 +22,7 @@ final class AuthenticationInfo{
 	/** @required */
 	public int $AuthenticationType;
 
-	public string $Certificate;
+	public string $Certificate = "";
 
 	/** @required */
 	public string $Token;
